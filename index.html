@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+</head>
+<body>
+
+<!-- Add a button to trigger the QR code scanning -->
+<button onclick="scanQRCodeAndSendToFirebase()">Scan QR Code</button>
+
+<!-- Add a video element to display the camera feed -->
+<video id="video" width="640" height="480" autoplay></video>
+
+<script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"></script>
+
+<!-- Include OpenCV (CDN) -->
+<script async src="https://docs.opencv.org/master/opencv.js" onload="onOpenCvReady();" crossorigin="anonymous"></script>
+
+<!-- Include the JavaScript file -->
+<script type="module" src="script.js"></script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyA5yWQR0X1y0_cW5Z8_K4ZqfzzBi7FT6dA",
+        authDomain: "medvend-7c6e8.firebaseapp.com",
+        databaseURL: "https://medvend-7c6e8-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "medvend-7c6e8",
+        storageBucket: "medvend-7c6e8.appspot.com",
+        messagingSenderId: "659598293192",
+        appId: "1:659598293192:web:e932fb6d84fb8130d8cdfd",
+        measurementId: "G-03T41HLVEN"
+    };
+    const firebaseApp = initializeApp(firebaseConfig);
+    const database = getDatabase(firebaseApp);
+</script>
+
+</body>
+</html>
